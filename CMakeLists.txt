@@ -45,6 +45,8 @@ else()
             sensorsworker.h sensorsworker.cpp
             sensorsmanager.h sensorsmanager.cpp
             sensorsmonitor.h sensorsmonitor.cpp
+            simplesensormonitor.h simplesensormonitor.cpp
+            sensorsettingdialog.h sensorsettingdialog.cpp sensorsettingdialog.ui
             configutil.h configutil.cpp
         )
     endif()

@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sensor_sad.png</file>
+        <file>sensor_icon.png</file>
+        <file>sensor_u_helper.png</file>
+        <file>sensor_what.png</file>
+    </qresource>
+    <qresource prefix="/sensors">
+        <file>sensor_30.png</file>
+        <file>sensor_35.png</file>
+        <file>sensor_40.png</file>
+        <file>sensor_45.png</file>
+        <file>sensor_50.png</file>
+        <file>sensor_55.png</file>
+        <file>sensor_60.png</file>
+        <file>sensor_70.png</file>
+        <file>sensor_80.png</file>
+        <file>sensor_90.png</file>
+        <file>sensor_100.png</file>
+    </qresource>
+</RCC>
