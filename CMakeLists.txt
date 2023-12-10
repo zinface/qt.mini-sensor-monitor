@@ -42,6 +42,8 @@ else()
             resources.qrc
             minifloatingwindow.h minifloatingwindow.cpp minifloatingwindow.ui
             minifloatingicon.h minifloatingicon.cpp
+            sensorsworker.h sensorsworker.cpp
+            sensorsmanager.h sensorsmanager.cpp
             configutil.h configutil.cpp
         )
     endif()
