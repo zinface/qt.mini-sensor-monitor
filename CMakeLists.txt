@@ -41,6 +41,7 @@ else()
 
             resources.qrc
             minifloatingwindow.h minifloatingwindow.cpp minifloatingwindow.ui
+            minifloatingicon.h minifloatingicon.cpp
             configutil.h configutil.cpp
         )
     endif()
