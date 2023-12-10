@@ -84,3 +84,8 @@ include(cmake/SparkDesktopMacros.cmake)
 # 注释行(使用方式)
 find_package(SparkDebPackage PATHS ${CMAKE_SOURCE_DIR})
 add_package_descript(cmake/spark-deb-package.descript)
+
+include(cmake/SparkAppimageConfig.cmake)  # 导入来自 Spark 构建的 Appimage 构建
+add_appimage_icon(sensor_icon.png)       # 添加到 Appimage 中的默认的图标
+add_appimage_desktop()                    # 添加到 Appimage 中的默认desktop(使用来自 Spark 构建的 Desktop 构建中配置的信息(必须要求 spark-desktop))
+add_appimage_target(simple-sensor-monitor)      # 添加到 Appimage 中的默认目标，应用对 Appimage 的构建
