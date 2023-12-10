@@ -44,6 +44,7 @@ else()
             minifloatingicon.h minifloatingicon.cpp
             sensorsworker.h sensorsworker.cpp
             sensorsmanager.h sensorsmanager.cpp
+            sensorsmonitor.h sensorsmonitor.cpp
             configutil.h configutil.cpp
         )
     endif()
