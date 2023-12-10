@@ -38,6 +38,10 @@ else()
     else()
         add_executable(simple-sensor-monitor
             ${PROJECT_SOURCES}
+
+            resources.qrc
+            minifloatingwindow.h minifloatingwindow.cpp minifloatingwindow.ui
+            configutil.h configutil.cpp
         )
     endif()
 endif()
