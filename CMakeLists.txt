@@ -78,3 +78,9 @@ install(TARGETS simple-sensor-monitor
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(untitled)
 endif()
+
+include(cmake/SparkDesktopMacros.cmake)
+
+# 注释行(使用方式)
+find_package(SparkDebPackage PATHS ${CMAKE_SOURCE_DIR})
+add_package_descript(cmake/spark-deb-package.descript)
