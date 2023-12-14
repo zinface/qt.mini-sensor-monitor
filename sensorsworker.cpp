@@ -12,7 +12,7 @@ SensorsWorker::SensorsWorker(SensorsManager *parent)
 void SensorsWorker::slotRequestSensor(QString &adapter, QString &sensor)
 {
     QProcess process;
-    process.start("sensors -u");
+    process.start("sensors", QStringList("-u"));
     process.waitForFinished(2000);
 
     QString standardOutput = process.readAllStandardOutput();

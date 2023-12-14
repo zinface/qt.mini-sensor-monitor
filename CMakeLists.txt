@@ -17,10 +17,20 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+
+        resources.qrc
+        minifloatingwindow.h minifloatingwindow.cpp minifloatingwindow.ui
+        minifloatingicon.h minifloatingicon.cpp
+        sensorsworker.h sensorsworker.cpp
+        sensorsmanager.h sensorsmanager.cpp
+        sensorsmonitor.h sensorsmonitor.cpp
+        simplesensormonitor.h simplesensormonitor.cpp
+        sensorsettingdialog.h sensorsettingdialog.cpp sensorsettingdialog.ui
+        configutil.h configutil.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(untitled
+    qt_add_executable(simple-sensor-monitor
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
@@ -38,16 +48,6 @@ else()
     else()
         add_executable(simple-sensor-monitor
             ${PROJECT_SOURCES}
-
-            resources.qrc
-            minifloatingwindow.h minifloatingwindow.cpp minifloatingwindow.ui
-            minifloatingicon.h minifloatingicon.cpp
-            sensorsworker.h sensorsworker.cpp
-            sensorsmanager.h sensorsmanager.cpp
-            sensorsmonitor.h sensorsmonitor.cpp
-            simplesensormonitor.h simplesensormonitor.cpp
-            sensorsettingdialog.h sensorsettingdialog.cpp sensorsettingdialog.ui
-            configutil.h configutil.cpp
         )
     endif()
 endif()
@@ -76,7 +76,7 @@ install(TARGETS simple-sensor-monitor
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(untitled)
+    qt_finalize_executable(simple-sensor-monitor)
 endif()
 
 include(cmake/SparkDesktopMacros.cmake)

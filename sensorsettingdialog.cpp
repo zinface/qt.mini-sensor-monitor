@@ -72,6 +72,7 @@ QString SensorSettingDialog::getClassUnit()
     default:
         break;
     }
+    return "#";
 }
 
 void SensorSettingDialog::on_pushButton_clicked()
