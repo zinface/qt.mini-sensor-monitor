@@ -26,7 +26,9 @@ set(PROJECT_SOURCES
         sensorsmonitor.h sensorsmonitor.cpp
         simplesensormonitor.h simplesensormonitor.cpp
         sensorsettingdialog.h sensorsettingdialog.cpp sensorsettingdialog.ui
+
         configutil.h configutil.cpp
+        sensorsconfig.h sensorsconfig.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -1,10 +1,9 @@
-#include "configutil.h"
+#include "sensorsconfig.h"
 #include "sensorsettingdialog.h"
 #include "sensorsmonitor.h"
 #include "simplesensormonitor.h"
 
 #include <QContextMenuEvent>
-#include <QSettings>
 
 SimpleSensorMonitor::SimpleSensorMonitor(QWidget *parent)
     : MiniFloatingIcon{parent},
@@ -34,11 +33,12 @@ SimpleSensorMonitor::SimpleSensorMonitor(QWidget *parent)
 
 void SimpleSensorMonitor::resetConfig()
 {
-    QSettings config(ConfigUtil::configPath(), QSettings::IniFormat);
-    m_monitor->setMonitorAdapterSensor(config.value("adapter").toString(), config.value("sensor").toString());
+    m_monitor->setMonitorAdapterSensor(SensorsConfig::getAdapter(), SensorsConfig::getSensor());
+    m_monitor->setInterval(SensorsConfig::getDelay());
 
-    auto identifier = config.value("identifier").toString();
-    auto classunit = config.value("classunit").toString();
+    auto identifier = SensorsConfig::getIdentifier();
+    auto classunit = SensorsConfig::getClassUnit();
+
     m_identifier = identifier.isEmpty()?"#":identifier;
     m_classunit = classunit.isEmpty()?"#":classunit;
 
@@ -73,18 +73,20 @@ void SimpleSensorMonitor::slotDisplaySettingDialog()
         QString sensor = dialog.getSensor();
         QString identifier = dialog.getIdentifier();
         QString classunit = dialog.getClassUnit();
+        int delay = dialog.getDelay();
+
         m_monitor->setMonitorAdapterSensor(adapter, sensor);
+        m_monitor->setInterval(delay);
 
         m_identifier = identifier;
         m_classunit = classunit;
 
-        QSettings config(ConfigUtil::configPath(), QSettings::IniFormat);
-        config.setValue("adapter", adapter);
-        config.setValue("sensor", sensor);
-        config.setValue("identifier", identifier);
-        config.setValue("classunit", classunit);
+        SensorsConfig::setAdapter(adapter);
+        SensorsConfig::setSensor(sensor);
+        SensorsConfig::setIdentifier(identifier);
+        SensorsConfig::setClassUnit(classunit);
+        SensorsConfig::setDelay(delay);
     }
-
 }
 
 void SimpleSensorMonitor::slotExit()

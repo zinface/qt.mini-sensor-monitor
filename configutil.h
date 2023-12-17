@@ -15,7 +15,6 @@ public:
 
     static QString appConfigDir();
     static QString configPath();
-
 };
 
 #endif // CONFIGUTIL_H

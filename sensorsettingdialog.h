@@ -19,6 +19,7 @@ public:
     QString getSensor();
     QString getIdentifier();
     QString getClassUnit();
+    int getDelay();
 
 private slots:
     void on_pushButton_clicked();

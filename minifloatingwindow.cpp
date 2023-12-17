@@ -1,10 +1,9 @@
-#include "configutil.h"
 #include "minifloatingwindow.h"
+#include "sensorsconfig.h"
 #include "ui_minifloatingwindow.h"
 
 #include <QDir>
 #include <QMouseEvent>
-#include <QSettings>
 
 MiniFloatingWindow::MiniFloatingWindow(QWidget *parent) :
     QWidget(parent),
@@ -38,18 +37,13 @@ QString MiniFloatingWindow::execDir()
 
 void MiniFloatingWindow::resetLocaltion()
 {
-//    QSettings config(execDir() + "location.ini", QSettings::IniFormat);
-    QSettings config(ConfigUtil::configPath(), QSettings::IniFormat);
-    move(config.value("x").toInt(), config.value("y").toInt());
+    move(SensorsConfig::x(), SensorsConfig::y());
 }
 
 void MiniFloatingWindow::restoreLocaltion()
 {
-//    QSettings config(execDir() + "location.ini", QSettings::IniFormat);
-    //    QSettings config(execDir() + "location.ini", QSettings::IniFormat);
-    QSettings config(ConfigUtil::configPath(), QSettings::IniFormat);
-    config.setValue("x", x());
-    config.setValue("y", y());
+    SensorsConfig::setX(x());
+    SensorsConfig::setY(y());
 }
 
 void MiniFloatingWindow::mousePressEvent(QMouseEvent *event)

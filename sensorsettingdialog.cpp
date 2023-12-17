@@ -1,8 +1,6 @@
-#include "configutil.h"
+#include "sensorsconfig.h"
 #include "sensorsettingdialog.h"
 #include "ui_sensorsettingdialog.h"
-
-#include <QSettings>
 
 SensorSettingDialog::SensorSettingDialog(QWidget *parent) :
     QDialog(parent),
@@ -10,9 +8,9 @@ SensorSettingDialog::SensorSettingDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QSettings config(ConfigUtil::configPath(), QSettings::IniFormat);
-    ui->edit_adapter->setText(config.value("adapter").toString());
-    ui->edit_sensor->setText(config.value("sensor").toString());
+    ui->edit_adapter->setText(SensorsConfig::getAdapter());
+    ui->edit_sensor->setText(SensorsConfig::getSensor());
+    ui->spinbox_delay->setValue(SensorsConfig::getDelay());
 
     ui->groupBox_2->hide();
     ui->label_3->setPixmap(QIcon("://sensor_u_helper.png").pixmap(409, 200));
@@ -73,6 +71,11 @@ QString SensorSettingDialog::getClassUnit()
         break;
     }
     return "#";
+}
+
+int SensorSettingDialog::getDelay()
+{
+    return ui->spinbox_delay->value();
 }
 
 void SensorSettingDialog::on_pushButton_clicked()

@@ -3,23 +3,23 @@
 
 SensorsMonitor::SensorsMonitor(QObject *parent)
     : QObject{parent}
+    , m_monitor_running(false)
+    , m_interval(500)
 {
-    m_timer = new QTimer;
-    m_timer->setInterval(500);
     m_manager = new SensorsManager;
-    connect(m_timer, &QTimer::timeout, this, &SensorsMonitor::slotTimeout);
     connect(m_manager, &SensorsManager::onRequestSensor, this, &SensorsMonitor::slotOnRequestSensor);
     m_manager->start();
 }
 
 void SensorsMonitor::start()
 {
-    m_timer->start();
+    m_monitor_running = true;
+    slotOnRequestSensor("", "0");
 }
 
 void SensorsMonitor::stop()
 {
-    m_timer->stop();
+    m_monitor_running = false;
 }
 
 void SensorsMonitor::slotTimeout()
@@ -35,6 +35,22 @@ void SensorsMonitor::slotOnRequestSensor(const QString &sensor, const QString &v
         v = -1;
     }
     emit sensorUpdated(v);
+
+    if (m_monitor_running) {
+        emit QTimer::singleShot(m_interval, [this](){
+            m_manager->requestSensor(m_adapter, m_sensor);
+        });
+    }
+}
+
+int SensorsMonitor::interval() const
+{
+    return m_interval;
+}
+
+void SensorsMonitor::setInterval(int newInterval)
+{
+    m_interval = newInterval;
 }
 
 QString SensorsMonitor::sensor() const

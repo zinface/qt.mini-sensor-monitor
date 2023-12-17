@@ -22,6 +22,9 @@ public:
 
     void setMonitorAdapterSensor(const QString &adapter, const QString &sensor);
 
+    int interval() const;
+    void setInterval(int newInterval);
+
 public slots:
     void slotTimeout();
     void slotOnRequestSensor(const QString &sensor, const QString &value);
@@ -30,11 +33,13 @@ signals:
     void sensorUpdated(float value);
 
 private:
-    QTimer *m_timer;
+    bool m_monitor_running;
     SensorsManager *m_manager;
 
     QString m_adapter;
     QString m_sensor;
+
+    int m_interval;
 };
 
 #endif // SENSORSMONITOR_H
