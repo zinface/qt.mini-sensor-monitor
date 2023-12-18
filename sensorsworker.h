@@ -11,7 +11,7 @@ public:
     explicit SensorsWorker(SensorsManager *parent);
 
 public slots:
-    void slotRequestSensor(QString &adapter, QString &sensor);
+    void slotRequestSensor(const QString &adapter, const QString &sensor);
 
 
 private:

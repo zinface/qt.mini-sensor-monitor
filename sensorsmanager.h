@@ -13,7 +13,7 @@ public:
     void stop();
 
 signals:
-    void requestSensor(QString &adapter, QString &sensor);
+    void requestSensor(const QString &adapter, const QString &sensor);
     void onRequestSensor(const QString &sensor, const QString &value);
 
 private:

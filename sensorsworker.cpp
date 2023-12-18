@@ -9,7 +9,7 @@ SensorsWorker::SensorsWorker(SensorsManager *parent)
 
 }
 
-void SensorsWorker::slotRequestSensor(QString &adapter, QString &sensor)
+void SensorsWorker::slotRequestSensor(const QString &adapter, const QString &sensor)
 {
     QProcess process;
     process.start("sensors", QStringList("-u"));
