@@ -58,13 +58,13 @@ function(target_linuxdeploy _target)
         message("Use New glibc")
         add_custom_target(linuxdeploy pwd
             BYPRODUCTS appimage
-            COMMAND "${LINUXDEPLOYQT}" ${_target} -appimage -unsupported-allow-new-glibc -verbose=3 -no-strip|| true
+            COMMAND "${LINUXDEPLOYQT}" $<TARGET_FILE:${_target}> -appimage -unsupported-allow-new-glibc -verbose=3 -no-strip || true
             WORKING_DIRECTORY "${APPIMAGE_OUTPUT}")
     else()
         message("Un Use New glibc")
         add_custom_target(linuxdeploy pwd
             BYPRODUCTS appimage
-            COMMAND "${LINUXDEPLOYQT}" ${_target} -appimage -verbose=3 -no-strip|| true
+            COMMAND "${LINUXDEPLOYQT}" $<TARGET_FILE:${_target}> -appimage -verbose=3 -no-strip || true
             WORKING_DIRECTORY "${APPIMAGE_OUTPUT}")
     endif(USE_APPIMAGE_NEW_GLIBC)
 
