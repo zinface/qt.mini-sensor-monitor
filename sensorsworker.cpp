@@ -3,7 +3,7 @@
 #include <QProcess>
 
 SensorsWorker::SensorsWorker(SensorsManager *parent)
-    : QObject{parent},
+    : QObject{},
     manager(parent)
 {
 
