@@ -1,4 +1,4 @@
-#include "sensorsconfig.h"
+﻿#include "sensorsconfig.h"
 #include "sensorsettingdialog.h"
 #include "ui_sensorsettingdialog.h"
 
@@ -46,6 +46,9 @@ QString SensorSettingDialog::getIdentifier()
     case 3:
         return "功耗";
         break;
+    case 4:
+        return "风扇";
+        break;
     default:
         break;
     }
@@ -66,6 +69,9 @@ QString SensorSettingDialog::getClassUnit()
         break;
     case 3:
         return " W";
+        break;
+    case 4:
+        return " RPM";
         break;
     default:
         break;

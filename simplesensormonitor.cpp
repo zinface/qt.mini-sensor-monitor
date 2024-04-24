@@ -1,4 +1,4 @@
-#include "sensorsconfig.h"
+﻿#include "sensorsconfig.h"
 #include "sensorsettingdialog.h"
 #include "sensorsmonitor.h"
 #include "simplesensormonitor.h"
@@ -60,6 +60,24 @@ void SimpleSensorMonitor::slotSensorUpdated(float value)
     if (value < 30) sensor_icon = ":/sensors/sensor_30.png";
 
     if (value == -1) sensor_icon = "://sensor_sad.png";
+
+    if (m_identifier == "风扇") {
+        auto fan = ((value / 3800.0) * 80);
+        sensor_icon = ":/fan/icons/fans/100.png";
+        if (fan < 90) sensor_icon = ":/fan/icons/fans/90.png";
+        if (fan < 80) sensor_icon = ":/fan/icons/fans/80.png";
+        if (fan < 70) sensor_icon = ":/fan/icons/fans/70.png";
+        if (fan < 60) sensor_icon = ":/fan/icons/fans/60.png";
+        if (fan < 55) sensor_icon = ":/fan/icons/fans/50.png";
+        if (fan < 50) sensor_icon = ":/fan/icons/fans/40.png";
+        if (fan < 45) sensor_icon = ":/fan/icons/fans/30.png";
+        if (fan < 40) sensor_icon = ":/fan/icons/fans/20.png";
+        if (fan < 35) sensor_icon = ":/fan/icons/fans/10.png";
+    }
+
+    if (m_identifier == "电流" || m_identifier == "电压" || m_identifier == "功耗") {
+        sensor_icon = ":/electricity/icons/electricity/electricity.png";
+    }
 
     setIcon(sensor_icon);
     m_lable->setText(QString("%2: %1%3").arg(value, 0, 'f', 1).arg(m_identifier).arg(m_classunit));

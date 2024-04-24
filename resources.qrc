@@ -18,4 +18,19 @@
         <file>sensor_90.png</file>
         <file>sensor_100.png</file>
     </qresource>
+    <qresource prefix="/fan">
+        <file>icons/fans/10.png</file>
+        <file>icons/fans/20.png</file>
+        <file>icons/fans/30.png</file>
+        <file>icons/fans/40.png</file>
+        <file>icons/fans/50.png</file>
+        <file>icons/fans/60.png</file>
+        <file>icons/fans/70.png</file>
+        <file>icons/fans/80.png</file>
+        <file>icons/fans/90.png</file>
+        <file>icons/fans/100.png</file>
+    </qresource>
+    <qresource prefix="/electricity">
+        <file>icons/electricity/electricity.png</file>
+    </qresource>
 </RCC>

@@ -1,4 +1,4 @@
-#include "minifloatingicon.h"
+﻿#include "minifloatingicon.h"
 
 #include <QIcon>
 
@@ -18,7 +18,7 @@ void MiniFloatingIcon::setIcon(const QString &icon)
 
 void MiniFloatingIcon::setIcon(const QIcon &icon)
 {
-    setIcon(icon.pixmap(45, 40));
+    setIcon(icon.pixmap(40, 40));
 }
 
 void MiniFloatingIcon::setIcon(const QPixmap &pixmap)
