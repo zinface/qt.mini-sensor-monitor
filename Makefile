@@ -82,3 +82,9 @@ linuxdeploy: release download-bundle-linuxdeploytools
 generate-appimage:
 	cd build && cmake .. -DLINUXDEPLOYQT=$(LINUXDEPLOYQT) -DAPPIMAGETOOL=$(APPIMAGETOOL)
 	cd build && make appimage
+
+# Docker 
+docker-uos:
+	-rm -rf build/
+	docker run --rm -it --workdir /tmp/temp -v $(shell pwd):/tmp/temp uos-professional-qt5  make copytosource
+	sudo rm -rf build/
