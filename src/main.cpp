@@ -1,4 +1,3 @@
-#include "mainwindow.h"
 #include "minifloatingwindow.h"
 #include "simplesensormonitor.h"
 
