@@ -44,7 +44,9 @@ spark_desktop_macros(
 install(FILES ${SPARK_DESKTOP_FILE}
     DESTINATION /usr/share/applications
 )
-install(FILES sensor_icon.png DESTINATION /usr/share/icons/hicolor/512x512/apps/ RENAME simple-sensor-monitor.png)
+install(FILES resources/sensor_icon.png 
+    DESTINATION /usr/share/icons/hicolor/512x512/apps/ 
+    RENAME simple-sensor-monitor.png)
 
 # 基于 configure_file 填充内容配置
 # configure_file(<input> <output>
